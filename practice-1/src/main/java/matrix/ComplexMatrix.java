@@ -46,5 +46,29 @@ public class ComplexMatrix {
 
         return this.matrix[row][column];
     }
+
+    public ComplexMatrix add(ComplexMatrix other) {
+        throw new UnsupportedOperationException("Сложение пока не реализовано");
+    }
+
+    public ComplexMatrix substract(ComplexMatrix other) {
+        throw new UnsupportedOperationException("Вычитание пока не реализовано");
+    }
+
+    public ComplexMatrix multiply(ComplexMatrix other) {
+        throw new UnsupportedOperationException("Умножение пока не реализовано");
+    }
+
+    public ComplexMatrix devide(ComplexMatrix other) {
+        throw new UnsupportedOperationException("Деление пока не реализовано");
+    }
+
+    public ComplexMatrix transpose() {
+        throw new UnsupportedOperationException("Транспонирование пока не реализовано");
+    }
+
+    public ComplexMatrix determinant() {
+        throw new UnsupportedOperationException("Вычисление определителя пока не реализовано");
+    }
 }
 
