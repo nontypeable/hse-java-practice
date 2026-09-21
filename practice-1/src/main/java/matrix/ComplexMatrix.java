@@ -34,4 +34,17 @@ public class ComplexMatrix {
 
         this.matrix = matrix.clone();
     }
+
+    public Complex get(int row, int column) {
+        if (row < 0 || column < 0) {
+            throw new IndexOutOfBoundsException("Индекс не может быть меньше 0");
+        }
+
+        if (row > matrix.length || column > matrix[0].length) {
+            throw new IndexOutOfBoundsException("Индекс не может быть больше размера матрицы");
+        }
+
+        return this.matrix[row][column];
+    }
 }
+
