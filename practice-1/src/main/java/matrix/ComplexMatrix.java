@@ -3,6 +3,14 @@ package matrix;
 public class ComplexMatrix {
     private final Complex[][] matrix;
 
+    public int rows() {
+        return matrix.length;
+    }
+
+    public int columns() {
+        return matrix[0].length;
+    }
+
     public ComplexMatrix(Complex[][] matrix) {
         if (matrix == null || matrix.length == 0) {
             throw new IllegalArgumentException("Матрица должна быть непустой");
