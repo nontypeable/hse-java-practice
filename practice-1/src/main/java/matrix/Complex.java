@@ -8,7 +8,7 @@ public record Complex(double re, double im) {
         );
     }
 
-    public Complex substract(Complex other) {
+    public Complex subtract(Complex other) {
         return new Complex(
             re - other.re,
             im - other.im
@@ -22,7 +22,7 @@ public record Complex(double re, double im) {
         );
     }
 
-    public Complex devide(Complex other) {
+    public Complex divide(Complex other) {
         double denominator = other.re * other.re + other.im * other.im;
         if (denominator == 0) {
             throw new ArithmeticException("Division by zero");
