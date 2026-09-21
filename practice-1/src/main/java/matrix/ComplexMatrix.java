@@ -48,7 +48,7 @@ public class ComplexMatrix {
             throw new IndexOutOfBoundsException("Индекс не может быть меньше 0");
         }
 
-        if (row > matrix.length || column > matrix[0].length) {
+        if (row >= matrix.length || column >= matrix[0].length) {
             throw new IndexOutOfBoundsException("Индекс не может быть больше размера матрицы");
         }
 
@@ -75,7 +75,7 @@ public class ComplexMatrix {
         throw new UnsupportedOperationException("Транспонирование пока не реализовано");
     }
 
-    public ComplexMatrix determinant() {
+    public Complex determinant() {
         throw new UnsupportedOperationException("Вычисление определителя пока не реализовано");
     }
 }
