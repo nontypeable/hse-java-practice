@@ -3,14 +3,6 @@ package matrix;
 public class ComplexMatrix {
     private final Complex[][] matrix;
 
-    public int rows() {
-        return matrix.length;
-    }
-
-    public int columns() {
-        return matrix[0].length;
-    }
-
     public ComplexMatrix(Complex[][] matrix) {
         if (matrix == null || matrix.length == 0) {
             throw new IllegalArgumentException("Матрица должна быть непустой");
@@ -43,6 +35,14 @@ public class ComplexMatrix {
         this.matrix = matrix.clone();
     }
 
+    public int rows() {
+        return matrix.length;
+    }
+
+    public int columns() {
+        return matrix[0].length;
+    }
+
     public Complex get(int row, int column) {
         if (row < 0 || column < 0) {
             throw new IndexOutOfBoundsException("Индекс не может быть меньше 0");
@@ -59,7 +59,7 @@ public class ComplexMatrix {
         throw new UnsupportedOperationException("Сложение пока не реализовано");
     }
 
-    public ComplexMatrix substract(ComplexMatrix other) {
+    public ComplexMatrix subtract(ComplexMatrix other) {
         throw new UnsupportedOperationException("Вычитание пока не реализовано");
     }
 
@@ -67,7 +67,7 @@ public class ComplexMatrix {
         throw new UnsupportedOperationException("Умножение пока не реализовано");
     }
 
-    public ComplexMatrix devide(ComplexMatrix other) {
+    public ComplexMatrix divide(ComplexMatrix other) {
         throw new UnsupportedOperationException("Деление пока не реализовано");
     }
 
