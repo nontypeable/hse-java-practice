@@ -1,5 +1,7 @@
 package matrix;
 
+import java.util.Arrays;
+
 public class ComplexMatrix {
     private final Complex[][] matrix;
 
@@ -32,7 +34,8 @@ public class ComplexMatrix {
             }
         }
 
-        this.matrix = matrix.clone();
+        // простое копирование массива с помощью двух циклов скучное 🌚
+        this.matrix = Arrays.stream(matrix).map(Complex[]::clone).toArray(Complex[][]::new);
     }
 
     public int rows() {
