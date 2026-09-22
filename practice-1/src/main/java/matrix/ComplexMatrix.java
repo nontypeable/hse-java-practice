@@ -88,7 +88,23 @@ public class ComplexMatrix {
     }
 
     public ComplexMatrix multiply(ComplexMatrix other) {
-        throw new UnsupportedOperationException("Умножение пока не реализовано");
+        if (columns() != other.rows()) {
+            throw new IllegalArgumentException("Матрицы несовместимой размерности");
+        }
+
+        Complex[][] result = new Complex[rows()][other.columns()];
+
+        for (int i = 0; i < rows(); i++) {
+            for (int j = 0; j< other.columns(); j++) {
+                Complex sum = new Complex(0, 0);
+                for (int k = 0; k<columns(); k++) {
+                    sum = sum.add(matrix[i][k].multiply(other.matrix[k][j]));
+                }
+                result[i][j] = sum;
+            }
+        }
+
+        return new ComplexMatrix(result);
     }
 
     public ComplexMatrix divide(ComplexMatrix other) {
