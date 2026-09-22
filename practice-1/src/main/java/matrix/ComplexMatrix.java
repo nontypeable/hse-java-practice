@@ -56,7 +56,19 @@ public class ComplexMatrix {
     }
 
     public ComplexMatrix add(ComplexMatrix other) {
-        throw new UnsupportedOperationException("Сложение пока не реализовано");
+        if (rows() != other.rows() || columns() != other.columns()) {
+            throw new IllegalArgumentException("Матрицы разной размерности");
+        }
+
+        Complex[][] result = new Complex[rows()][columns()];
+
+        for (int i = 0; i<rows(); i++) {
+            for (int j = 0; j < columns(); j++){
+                result[i][j]= get(i,j).add(other.get(i, j));
+            }
+        }
+
+        return new ComplexMatrix(result);
     }
 
     public ComplexMatrix subtract(ComplexMatrix other) {
