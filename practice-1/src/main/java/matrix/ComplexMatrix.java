@@ -18,17 +18,17 @@ public class ComplexMatrix {
             throw new IllegalArgumentException("Матрица должны быть непустой");
         }
 
-        for (int i = 0; i < matrix.length; i++) {
-            if (matrix[i] == null) {
+        for (Complex[] complexes : matrix) {
+            if (complexes == null) {
                 throw new IllegalArgumentException("Не должно быть null-able строк");
             }
 
-            if (matrix[i].length != matrix[0].length) {
+            if (complexes.length != matrix[0].length) {
                 throw new IllegalArgumentException("Матрица должна быть прямоугольной");
             }
 
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] == null) {
+            for (Complex complex : complexes) {
+                if (complex == null) {
                     throw new IllegalArgumentException("Некорретное значение в матрице");
                 }
             }
