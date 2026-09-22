@@ -65,9 +65,9 @@ public class ComplexMatrix {
 
         Complex[][] result = new Complex[rows()][columns()];
 
-        for (int i = 0; i<rows(); i++) {
-            for (int j = 0; j < columns(); j++){
-                result[i][j]= get(i,j).add(other.get(i, j));
+        for (int i = 0; i < rows(); i++) {
+            for (int j = 0; j < columns(); j++) {
+                result[i][j] = get(i, j).add(other.get(i, j));
             }
         }
 
@@ -81,9 +81,9 @@ public class ComplexMatrix {
 
         Complex[][] result = new Complex[rows()][columns()];
 
-        for (int i = 0; i<rows(); i++) {
-            for (int j = 0; j < columns(); j++){
-                result[i][j]= get(i,j).subtract(other.get(i, j));
+        for (int i = 0; i < rows(); i++) {
+            for (int j = 0; j < columns(); j++) {
+                result[i][j] = get(i, j).subtract(other.get(i, j));
             }
         }
 
@@ -98,9 +98,9 @@ public class ComplexMatrix {
         Complex[][] result = new Complex[rows()][other.columns()];
 
         for (int i = 0; i < rows(); i++) {
-            for (int j = 0; j< other.columns(); j++) {
+            for (int j = 0; j < other.columns(); j++) {
                 Complex sum = new Complex(0, 0);
-                for (int k = 0; k<columns(); k++) {
+                for (int k = 0; k < columns(); k++) {
                     sum = sum.add(matrix[i][k].multiply(other.matrix[k][j]));
                 }
                 result[i][j] = sum;
