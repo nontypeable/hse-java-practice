@@ -112,7 +112,15 @@ public class ComplexMatrix {
     }
 
     public ComplexMatrix transpose() {
-        throw new UnsupportedOperationException("Транспонирование пока не реализовано");
+        Complex[][] result = new Complex[columns()][rows()];
+
+        for (int i = 0; i < rows(); i++) {
+            for (int j = 0; j < columns(); j++) {
+                result[j][i] = matrix[i][j];
+            }
+        }
+
+        return new ComplexMatrix(result);
     }
 
     public Complex determinant() {
