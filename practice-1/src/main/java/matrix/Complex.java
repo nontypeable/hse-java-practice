@@ -31,4 +31,16 @@ public record Complex(double re, double im) {
             (re * other.re + im * other.im) / denominator,
             (im * other.re - re * other.im) / denominator);
     }
+
+    public boolean isZero() {
+        return im == 0 && re == 0;
+    }
+
+    public double abs() {
+        return Math.sqrt(Math.pow(this.im, 2) + Math.pow(this.re, 2));
+    }
+
+    public Complex negate() {
+        return new Complex(-re, -im);
+    }
 }
