@@ -511,7 +511,10 @@ public class ComplexMatrixTest {
             {new Complex(3, 0), new Complex(4, -1)}
         });
 
-        assertEquals(new Complex(-1, 3), matrix.determinant());
+        Complex result = matrix.determinant();
+
+        assertEquals(-1, result.re(), 1e-9);
+        assertEquals(3, result.im(), 1e-9);
     }
 
     @DisplayName("Определитель треугольной матрицы равен произведению диагонали")

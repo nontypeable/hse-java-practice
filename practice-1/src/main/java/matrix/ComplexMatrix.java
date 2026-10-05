@@ -127,7 +127,50 @@ public class ComplexMatrix {
     }
 
     public Complex determinant() {
-        throw new UnsupportedOperationException("Вычисление определителя пока не реализовано");
+        if (rows() != columns()) {
+            throw new IllegalArgumentException("Матрица должна быть квадратной");
+        }
+
+        Complex[][] copy = Arrays.stream(matrix)
+            .map(Complex[]::clone)
+            .toArray(Complex[][]::new);
+
+        Complex determinant = new Complex(1, 0);
+
+        for (int column = 0; column < rows(); column++) {
+            int pivotRow = column;
+
+            for (int row = column + 1; row < matrix.length; row++) {
+                if (matrix[row][column].abs() > matrix[pivotRow][column].abs()) {
+                    pivotRow = row;
+                }
+            }
+
+            if (copy[pivotRow][column].isZero()) {
+                return new Complex(0, 0);
+            }
+
+            if (pivotRow != column) {
+                Complex[] temporary = copy[column];
+                copy[column] = copy[pivotRow];
+                copy[pivotRow] = temporary;
+                determinant = determinant.negate();
+            }
+
+            Complex pivot = copy[column][column];
+            determinant = determinant.multiply(pivot);
+
+            for (int row = column + 1; row < rows(); row++) {
+                Complex factor = copy[row][column].divide(pivot);
+
+                for (int k = column + 1; k < rows(); k++) {
+                    copy[row][k] = copy[row][k].subtract(factor.multiply(copy[column][k]));
+                }
+
+                copy[row][column] = new Complex(0, 0);
+            }
+        }
+
+        return determinant;
     }
 }
-
