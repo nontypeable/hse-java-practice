@@ -1,7 +1,9 @@
 package matrix;
 
+import java.util.Scanner;
+
 public class Main {
     static void main() {
-        IO.println("Hello, World!");
+        new ConsoleInterface(new Scanner(System.in), System.out).run();
     }
 }
